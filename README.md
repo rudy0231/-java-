@@ -5,6 +5,6 @@
 後台功能: 活動後臺CRUD  查看會員活動報名清單  匯出csv資料  SweetAlert+Ajax整合應用  CKEditor使用   
 # 我所負責的部分  
 前端:
-SixteamSpringBootFighter/src/main/webapp/WEB-INF/sixteam/t6_14/
+SixteamSpringBootFighter/src/main/webapp/WEB-INF/sixteam/t6_14/  
 後端:
 SixteamSpringBootFighter/src/main/java/sixteam/t6_14/
