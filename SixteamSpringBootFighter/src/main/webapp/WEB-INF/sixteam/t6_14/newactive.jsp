@@ -9,7 +9,7 @@
 <%-- <jsp:include page="/front_index/index-FrontToTopMVC.jsp" /> --%>
 
 <meta charset="utf-8">
-<!-- <link rel="icon" href="front_index/img/logo.png" type="image/png" /> -->
+<link rel="icon" href="/front_index/img/logo.png" type="image/png" />
 <title>神明便利店</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
@@ -128,14 +128,14 @@ h6 a:hover {
 							</div>
 							<div class="card-text">
 								<p>
-									開始時間:${act.activeStartDate}-${act.activeEndDate}<br>活動地點:${act.activeLocation}
+									開始時間:${act.activeStartDate}-${act.activeEndDate}<br>活動地點:${act.activeLocation}<br>可報名人數:${act.activeParticipantNum}
 								</p>
 							</div>
 							<div>
 								<button id="${act.activeID}" class="btn btn-outline-primary rounded-0 float-left favoriteBtn">									
 								</button>
 								<a href="actdesview/${act.activeID}"
-									class="btn btn-outline-primary rounded-0 float-end">了解更多</a>
+									class="btn btn-outline-primary rounded-0 float-end">活動資訊</a>
 							</div>
 						</div>
 					</div>

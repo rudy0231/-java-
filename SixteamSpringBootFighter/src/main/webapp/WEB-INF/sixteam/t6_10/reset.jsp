@@ -71,12 +71,19 @@
                                     </form>
                                     <hr>
                                     <div class="row">
-	                                    <div class="text-right col-lg-6">
-	                                        <a class="small" href="memberInsert">創建帳號</a>
+	                                    <div class="text-right col-lg-3">
+	                                        <a class="small" href="/register.controller">創建帳號</a>
 	                                    </div>
-	                                    <div class="text-left col-lg-6">
-	                                        <a class="small" href="login">已有帳號</a>
+	                                    <div class="text-left col-lg-3">
+	                                        <a class="small" href="/login">已有帳號</a>
 	                                    </div>
+	                                                 <div class="container-login100-form-btn col-lg-6">
+      <div class="wrap-login100-form-btn">
+       <div class="login100-form-bgbtn"></div>
+       <button class="login100-form-btn" id="onekey" type="button">一鍵輸入</button>
+      </div>
+     </div>
+	                                    
                                     </div>
                                 </div>
                             </div>
@@ -135,6 +142,11 @@
 			})
 			
 			
+	   $('#onekey').on('click', function(){
+        console.log("user")
+        $('#memberpassword').val('Abc123456')
+        $('#RepeatPassword').val('Abc123456')
+       })
 			
 		})
 	

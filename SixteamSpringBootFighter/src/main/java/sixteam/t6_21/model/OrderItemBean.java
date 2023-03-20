@@ -28,6 +28,25 @@ public class OrderItemBean {
 	Double unitPrice;   //單筆訂單總價錢
 	@Column(name="QUANTITY")
 	Integer quantity;	//單筆訂單數量
+	@Column(name="CLASSPRICE")
+	Double classPrice;	//單筆訂單數量
+	
+	
+	
+
+	public OrderItemBean(Integer seqno, Integer orderNumber, Integer classNumber, String description, Double unitPrice,
+			Integer quantity, Double classPrice) {
+		super();
+		this.seqno = seqno;
+		this.orderNumber = orderNumber;
+		this.classNumber = classNumber;
+		this.description = description;
+		this.unitPrice = unitPrice;
+		this.quantity = quantity;
+		this.classPrice = classPrice;
+	}
+
+
 	public OrderItemBean(Integer seqno, Integer orderNumber, Integer classNumber, String description, Double unitPrice,
 			Integer quantity) {
 		super();
@@ -49,6 +68,8 @@ public class OrderItemBean {
 		this.unitPrice = unitPrice;
 		this.quantity = quantity;
 	}
+
+
 
 
 	public OrderItemBean() {
@@ -90,13 +111,41 @@ public class OrderItemBean {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	@Override
-	public String toString() {
-		return "OrderItemBean [seqno=" + seqno + ", orderNumber=" + orderNumber + ", classNumber=" + classNumber
-				+ ", description=" + description + ", unitPrice=" + unitPrice + ", quantity=" + quantity + "]";
+	
+	public Double getClassPrice() {
+		return classPrice;
 	}
+
+
+	public void setClassPrice(Double classPrice) {
+		this.classPrice = classPrice;
+	}
+
+
 	public int totalPrice() {
 		return (int) (unitPrice*quantity);
+	}
+
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("OrderItemBean [seqno=");
+		builder.append(seqno);
+		builder.append(", orderNumber=");
+		builder.append(orderNumber);
+		builder.append(", classNumber=");
+		builder.append(classNumber);
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", unitPrice=");
+		builder.append(unitPrice);
+		builder.append(", quantity=");
+		builder.append(quantity);
+		builder.append(", classPrice=");
+		builder.append(classPrice);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }

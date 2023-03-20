@@ -1,6 +1,8 @@
 package sixteam.t6_21.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -45,10 +47,19 @@ public class ClassShoppingAction {
 
 			
 			ClassBean cb = classService.findById(classId);
-			OrderItemBean oib = new OrderItemBean(null,null,classId,cb.getDescription(),cb.getClassPrice(),qty);
+			OrderItemBean oib = new OrderItemBean(null,null,classId,cb.getDescription(),cb.getClassPrice()*qty,qty,cb.getClassPrice());
+			
+			List<ClassBean> classtypelist = classService.findByclassType(cb.getClassType());
+			
+			for(int i=0;i<classtypelist.size();i++) {
+				if(cb.getClassId()  == classtypelist.get(i).getClassId()) {
+					classtypelist.remove(i);
+				}
+			}
+			m.addAttribute("classtypelist", classtypelist.subList(0, 3));
 			
 			cart.addToCart(classId, oib);
-			
+			System.out.println(oib.toString());
 			System.out.println(cart.getContent());
 			
 			ClassBean cBean = classService.findById(classId);
@@ -71,21 +82,30 @@ public class ClassShoppingAction {
 
 			qty = 1;
 			ClassBean cb = classService.findById(classId);
-			OrderItemBean oib = new OrderItemBean(null,null,classId,cb.getDescription(),cb.getClassPrice(),qty);
+			OrderItemBean oib = new OrderItemBean(null,null,classId,cb.getDescription(),cb.getClassPrice()*qty,qty,cb.getClassPrice());
 			
 			cart.addToCart(classId, oib);
-			
+			System.out.println(oib.toString());
 			System.out.println(cart.getContent());
 	}
 	
 	
 	@GetMapping("/showshoppingcart.controller")
-	public String processMainAction(HttpServletRequest request,HttpSession session) {
+	public String processMainAction(HttpServletRequest request,HttpSession session,Model m) {
 		
 		ShoppingCart sc =(ShoppingCart)session.getAttribute("ShoppingCart");
 		if(sc == null) {
 			return"t6_21/emptyShoppingCart";
 		}
+		List<ClassBean> list = classService.findAll();
+		List newlistList = new ArrayList<>();
+		if(list.size()>2) {
+			newlistList = list.subList(0, 3);	
+		}
+				
+		
+		
+		m.addAttribute("list", newlistList);
 		return "t6_21/ShoppingCartContent";
 	}
 	

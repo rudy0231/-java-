@@ -8,5 +8,7 @@ public interface OrderItemRepository extends JpaRepository<OrderItemBean, Intege
 	
 
 	public List<OrderItemBean> findByorderNumber(int orderNumber);
-
+	void deleteAllByOrderNumber(int orderNumber);
+	OrderItemBean findByseqno(Integer seqno);
+	void deleteByseqno(Integer seqno);
 }

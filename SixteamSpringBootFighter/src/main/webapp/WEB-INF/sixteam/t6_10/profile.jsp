@@ -249,8 +249,8 @@
 <!--                             <hr> -->
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <a class="btn btn-info " target="__blank"
-                                        href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                                    <button class="btn btn-info " id="onekey"
+                                        >一鍵輸入</button>
                                 </div>
                             </div>
                         </div>
@@ -388,7 +388,13 @@
 			$('#changePwdDiv').css('color','blue').html("<button class='btn btn-success' id='toChangePwdButton'>修改密碼</button>'")
 	    })	
     	
-    	
+    $('#onekey').on('click', function(){
+        console.log("user")
+        $('#password').val('Abc123456')
+        $('#inputPasswordConfirm').val('Abc123456')
+       })
+	    
+	    
     })
     </script> 
 </body>

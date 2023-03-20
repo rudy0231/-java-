@@ -100,7 +100,7 @@ td a {
 										<td>${act.activeID}</td>
 										<td>${act.activeName}<a  href="/actives/toenroll/${act.activeID}">
 													<button type="button" class="btn-sm btn-outline-dark">
-														<i class="fa-regular fa-eye"></i>
+														<i class="fa-solid fa-magnifying-glass"></i>
 													</button>
 												</a></td>
 										<td><img height='100' width='80'

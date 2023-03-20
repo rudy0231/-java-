@@ -61,7 +61,7 @@ h6 a:hover {
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="card mb-5 shadow-sm"
 						>
-						<a href="actdesview/${act.activeID}"> <img
+						<a href="/actives/actdesview/${act.activeID}"> <img
 							src="../actives/toImg/${act.activeID}" class="img-fluid "
 							width="500" height="500">
 						</a>
@@ -69,7 +69,7 @@ h6 a:hover {
 							<div class="card-title">
 
 								<h6>
-									<a href="actdesview/${act.activeID}">${act.activeName}</a>
+									<a href="/actives/actdesview/${act.activeID}">${act.activeName}</a>
 								</h6>
 							</div>
 							<div class="card-text">
@@ -80,7 +80,7 @@ h6 a:hover {
 							<div>
 								<button id="${act.activeID}" class="btn btn-outline-primary rounded-0 float-left favoriteBtn">									
 								</button>
-								<a href="actdesview/${act.activeID}"
+								<a href="/actives/actdesview/${act.activeID}"
 									class="btn btn-outline-primary rounded-0 float-end">活動資訊</a>
 							</div>
 						</div>

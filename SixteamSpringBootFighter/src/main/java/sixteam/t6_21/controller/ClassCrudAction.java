@@ -3,7 +3,10 @@ package sixteam.t6_21.controller;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +27,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import sixteam.t6_21.model.ClassBean;
 import sixteam.t6_21.model.ClassService;
+import sixteam.t6_21.model.OrderBean;
 
 @Controller
 public class ClassCrudAction {
@@ -162,8 +169,50 @@ public class ClassCrudAction {
 		return "redirect:/t6_21ClassMaintain.controller";
 
 	}
-
 	
-	
+	//輸出檔案用
+	 @GetMapping(value = "/classexportCsv.controller") 
+	  public void exportCsv(HttpServletResponse response) throws IOException { 
+	      String fileName = "output.csv";   //輸出CSV的檔案名稱 
+	      response.setContentType("text/csv; charset=UTF-8");  //設定輸出為UTF-8中文才不會跑掉 
+	      response.setHeader("Content-Disposition", "attachment; filename=" + fileName); 
+	       
+	      List<ClassBean> beans = classService.findAll(); 
+	      //這邊要改成各自的BEAN 
+	      
+	      try (PrintWriter writer = response.getWriter()) { 
+	       //這是各位的欄位名稱 
+	          writer.println("課程編號,課程名字,課程老師名字,課程價錢,課程類型,課程日期,課程地址,課程人數上限,課程報名人數"); 
+	          //這裡也要改成各位抓的值 
+	          for (ClassBean bean : beans) { 
+	              writer.println(bean.getClassId() + "," + bean.getClassName() + "," + bean.getClassTeacherName() 
+	              + ","+ bean.getClassPrice() + "," + bean.getClassType() + "," + bean.getClassDate() + ","  
+	                + bean.getClassAddress() + "," + bean.getClassPeople()+ "," + bean.getClassApplicant()); 
+	          } 
+	      } 
+	  
+	  
+	      
+	 }
+	 
+	 @GetMapping(value = "/classexportJson.controller") 
+	 public void exportJson(HttpServletResponse response) throws IOException {
+		 List<ClassBean> beans = classService.findAll(); 
+		 Map<Integer, Object> data = new HashMap();
+		 for (ClassBean bean : beans) { 
+			 data.put(bean.getClassId(), bean);
+			 
+		 }
+		    response.setContentType("application/json;charset=UTF-8");
+		    response.setHeader("Content-Disposition", "attachment; filename=data.json");
+		    response.getWriter().write(new ObjectMapper().writeValueAsString(data));
+		  }
+	@PostMapping("/addonenewclass.controller")
+	public String addnewoneclass() {
+		
+		
+		return "t6_21/ClassInsert";
+		
+	}
 
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import sixteam.t6_10.securitymodel.MyUserDetailsService;
 import sixteam.t6_10.securitymodel.User;
@@ -28,6 +29,8 @@ import sixteam.utils.Utils;
 import sixteam.t6_14.model.MyFavoriteActiveService;
 
 @Controller
+@SessionAttributes(names = {"LoginOK"})
+
 @RequestMapping("/favorite")
 public class MyFavoriteActiveController {
 	@Autowired

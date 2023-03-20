@@ -40,7 +40,7 @@
 
         <div class="relative">
         <div>403您沒有權限</div>
-	        <a href="/welcomeToIndex" style="text-decoration:none">
+	        <a href="/loginToIndex" style="text-decoration:none">
 	        點此回首頁
 	        </a>
         </div>

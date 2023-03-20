@@ -6,7 +6,7 @@
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
 
-            <a class="navbar-brand ps-3" href="<c:url value='index-background.jsp' />">後台管理系統</a>
+            <a class="navbar-brand ps-3" href="/toBackIndex">後台管理系統</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                     class="fas fa-bars"></i></button>
@@ -19,35 +19,34 @@
                             class="fas fa-search"></i></button>
                 </div>
             </form>
-            
+
             <!-- Navbar-->
-            
+
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            	
- <!--          <li class="nav-item dropdown">
+
+                <!--          <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                          data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a> -->
-                     	<a href="/loginToProfile"> <img src="/t6_10_showNowImg.controller"
-							class="rounded-circle" alt="找不到用戶圖" width="40px" height="40px"
-							style="margin-left: 30px">
-						</a>
-                     
-                         
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
-                    </ul>
+                <a href="/loginToProfile"> <img src="/t6_10_showNowImg.controller" class="rounded-circle" alt="找不到用戶圖"
+                        width="40px" height="40px" style="margin-left: 30px">
+                </a>
+
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
                 </li>
             </ul>
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-<!--                 選單開始 -->
+                    <!--                 選單開始 -->
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading"></div>
@@ -66,7 +65,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-<!--                                     <a class="nav-link" href="">會員人數</a> -->
+                                    <!--                                     <a class="nav-link" href="">會員人數</a> -->
                                     <a class="nav-link" href="">會員管理</a>
                                 </nav>
                             </div>
@@ -81,63 +80,88 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="t6_21ClassMaintain.controller">課程查詢</a>
-                                    <a class="nav-link" href="t6_21OrderMaintain.controller">訂單查詢</a>
+                                    <a class="nav-link" href="/t6_21ClassMaintain.controller">課程查詢</a>
+                                    <a class="nav-link" href="/t6_21OrderMaintain.controller">訂單查詢</a>
                                 </nav>
                             </div>
-                            
+
                             <!-- 其他功能連線主頁 -->
                             <!-- <div class="sb-sidenav-menu-heading">Addons</div> -->
-<!--                             <a class="nav-link" href=""> -->
-<!--                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div> -->
-<!-- 								其他功能 -->
-<!--                             </a> -->
+                            <!--                             <a class="nav-link" href=""> -->
+                            <!--                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div> -->
+                            <!-- 								其他功能 -->
+                            <!--                             </a> -->
                             <a class="nav-link" href="t6_10_showAllUser.controller">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 會員系統
                             </a>
-                            <a class="nav-link" href="temple.controller">
-                                <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
-                                廟宇搜尋
-                            </a>
-                            
-<!--                             下拉 -->
-                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#collapseActivities" aria-expanded="false" aria-controls="collapseActivities">
-                                <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
-                                活動與報名管理
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#collapsetemple" aria-expanded="false" aria-controls="collapsetemple">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                廟宇及住房查詢
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseActivities" aria-labelledby="headingOne"
+                            <div class="collapse" id="collapsetemple" aria-labelledby="headingTwo"
                                 data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-<!--                                     <a class="nav-link" href="">會員人數</a> -->
-                                    <a class="nav-link" href="${pageContext.request.contextPath}/actives">活動管理</a>
-                                    <a class="nav-link" href="">報名管理</a>
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="/templeSellectAllAction">廟宇查詢</a>
+                                    <a class="nav-link" href="/templeRoomSellectAllAction">住房查詢</a>
+                                    <a class="nav-link" href="/TempleRoomOrdersSellectAllAction">訂單查詢</a>
                                 </nav>
                             </div>
                             
-<!--                             下拉end -->
-                            
-                            <a class="nav-link" href="front_index.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                物品購物車
-                            </a>
-                            <a class="nav-link" href="selectaction.controller2">
-                                <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
-                                月老配對系統
-                            </a>
-                            <a class="nav-link" href="/t6_27show.controller">
-                                <div class="sb-nav-link-icon"><i class="fas fa-comment"></i></div>
-                                社群論壇
-                            </a>
-                            <a class="nav-link" href="/logout">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
-                                登出
-                            </a>
-                            
-<!--                             選單結束 -->
-                        </div> 
+                            <a class="nav-link" href="actives">
+
+                                <!--                             下拉 -->
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseActivities" aria-expanded="false"
+                                    aria-controls="collapseActivities">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
+                                    活動與報名管理
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseActivities" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <!--                                     <a class="nav-link" href="">會員人數</a> -->
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/actives">活動管理</a>
+                                        <a class="nav-link" href="">報名管理</a>
+                                    </nav>
+                                </div>
+
+                                <!--                             下拉end -->
+
+                                <a class="nav-link" href="front_index.jsp">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                    物品購物車
+                                </a>
+                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#matchPages"
+                                    aria-expanded="false" aria-controls="matchPages">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
+                                    月老配對系統
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="matchPages" aria-labelledby="headingThree"
+                                    data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                        <a class="nav-link"
+                                            href="http://localhost:8081/t6_23/dataVhart.controller">配對統計資訊</a>
+                                        <a class="nav-link" href="/t6_23/showAllUsers.controller">所有用戶</a>
+                                        <a class="nav-link" href="/t6_23/check.controller">刪改紀錄</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="/t6_27show.controller">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-comment"></i></div>
+                                    社群論壇
+                                </a>
+                                <a class="nav-link" href="/logout">
+                                    <div class="sb-nav-link-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                    </div>
+                                    登出
+                                </a>
+
+                                <!--                             選單結束 -->
+                        </div>
 
 
 
@@ -156,11 +180,13 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website </div>
+                    <div class="text-muted">
+<!--                     Copyright &copy; Your Website  -->
+                    </div>
                     <div>
-                        <a href="#">Privacy Policy</a>
+                        <a href="#"></a>
                         &middot;
-                        <a href="#">Terms &amp; Conditions</a>
+                        <a href="#"> </a>
                     </div>
                 </div>
             </div>

@@ -12,17 +12,23 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import sixteam.t6_10.securitymodel.MyUserDetailsService;
 import sixteam.t6_10.securitymodel.RegistDate;
 import sixteam.t6_10.securitymodel.RegistDateService;
 import sixteam.t6_10.securitymodel.User;
+import sixteam.t6_14.model.ActiveService;
 import sixteam.t6_14.model.Actives;
-import sixteam.t6_14.model.ActivesServiceImpl;
 import sixteam.t6_21.model.ClassBean;
 import sixteam.t6_21.model.ClassService;
+import sixteam.t6_21.model.OrderBean;
+import sixteam.t6_21.model.OrderService;
+import sixteam.t6_27.model.PostBean;
+import sixteam.t6_27.model.PostService;
 
 @Controller
+@SessionAttributes(names = {"LoginOK"})
 public class t6indexController {
 	
 	@Autowired
@@ -33,38 +39,82 @@ public class t6indexController {
 	
 	@Autowired
 	private RegistDateService rService;
+	
 	@Autowired
-	private ActivesServiceImpl activesService;
+	private OrderService orderService;
+	
+	@Autowired
+	private ActiveService activesService;
+	
+	@Autowired
+	private PostService pService;
 	
 	@RequestMapping("/welcomeToIndex")
 	public String processAction(Model m) {
 		List<ClassBean> classlist = classService.findAll();
 		m.addAttribute("classList", classlist);
 		List<Actives> actives=activesService.findAll();
-		Collections.shuffle(actives);
-		m.addAttribute("actives",actives.subList(0, 4));
+		  Collections.shuffle(actives);
+		  m.addAttribute("actives",actives.subList(0, 4));
+		  
+		  
+//		  PostBean pBean = pService.findById(1004);
+//		  m.addAttribute("post", pBean);
+//		  
+//		  PostBean pBean1 = pService.findById(1005);
+//		  m.addAttribute("post1", pBean1);
+		  
+//		  PostBean pBean = pService.findById(1);
+//		  m.addAttribute("post", pBean);
+		  
+		  
+		  
 		return "front_index";
 	}
 	
-	@Secured({"ROLE_ADMIN","ROLE_USER"})//先開都可登 之後刪
+	@Secured({"ROLE_ADMIN"})//先開都可登 之後刪
 	@RequestMapping("/toBackIndex")
 	public String toBackIndex(Model m) {
-		return "redirect:/index-background.jsp";
+		long count = uService.showCount();
+		m.addAttribute("count",count);
+		
+		
+		
+		List<OrderBean> orderlist = orderService.findAll();
+		
+		int totalprice= 0;
+
+		for (OrderBean orderBean : orderlist) {
+			
+			double price =orderBean.getOrderPrice();
+			
+			totalprice+= (int)price;
+		}
+		
+		long countclass = orderService.showCount();
+		m.addAttribute("countclass",countclass);
+		m.addAttribute("totalprice",totalprice);
+		
+		
+		return "index-background";
 	}
 	
-	@RequestMapping("/loginToIndex")
-	public String loginToIndex(Principal pc1,Model m, HttpServletRequest request, HttpSession session) {
-		System.out.println("======== 1 =======");
-		User user = uService.showUser(pc1.getName());
-		System.out.println("======== 2 =======");
-		RegistDate registDate = rService.addUser(user.getId());
-		System.out.println("======== 3 =======");
-		System.out.println(registDate);
-		session.setAttribute("LoginOK", user);
-		List<ClassBean> classlist = classService.findAll();
-		m.addAttribute("classList", classlist);
-		return "front_index";
-	}
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
+    @RequestMapping("/loginToIndex")
+    public String loginToIndex(Principal pc1,Model m, HttpServletRequest request, HttpSession session) {
+        User user = uService.showUser(pc1.getName());
+        session.setAttribute("LoginOK", user);
+
+        List<ClassBean> classlist = classService.findAll();
+        m.addAttribute("classList", classlist);
+        List<Actives> actives=activesService.findAll();
+          Collections.shuffle(actives);
+          m.addAttribute("actives",actives.subList(0, 4));
+
+
+
+        return "front_index";
+    }
 	
 	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@RequestMapping("/loginToProfile")

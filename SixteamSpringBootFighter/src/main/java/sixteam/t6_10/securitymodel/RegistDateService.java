@@ -2,6 +2,7 @@ package sixteam.t6_10.securitymodel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,10 @@ public class RegistDateService {
 	@Autowired
 	RegistDateRepository rRepository;
 	
+	public List<RegistDate> showAllUserDate() {
+		return rRepository.findAll();
+	}
+	
 	public RegistDate showUserDate(int id) {
 		return rRepository.findById(id).get();
 	}
@@ -20,9 +25,13 @@ public class RegistDateService {
 		return rRepository.save(uDate);
 	}
 	
-	public void removeUserDate(int id) {
-		rRepository.deleteById(id);
-	}
+    public void removeUserDate(int id) {
+        if (rRepository.findById(id).isPresent()) {
+            rRepository.deleteById(id);
+            System.out.println("有删");
+        }
+        System.out.println("過了");
+    }
 	
 	public RegistDate addUser(RegistDate uDate) {
 		return rRepository.save(uDate);

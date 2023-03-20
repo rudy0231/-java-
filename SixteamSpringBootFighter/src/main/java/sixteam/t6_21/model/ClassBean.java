@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "class")
 @Component
@@ -29,10 +31,12 @@ public class ClassBean {
 	@Column(name = "CLASSPRICE")
 	private Double classPrice;
 	@Column(name = "CLASSPICTURE1")
+	@JsonIgnore
 	private byte[] classPicture1;
 	@Column(name = "CLASSPICTURENAME")
 	private String classPictureName;
 	@Column(name = "CLASSTEACHERPICTURE")
+	@JsonIgnore
 	private byte[] classTeacherPicture;
 	
 	@Column(name = "CLASSTEACHERPICTURENAME")

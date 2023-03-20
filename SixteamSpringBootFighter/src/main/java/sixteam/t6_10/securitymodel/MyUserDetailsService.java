@@ -63,6 +63,10 @@ public class MyUserDetailsService implements UserDetailsService {
 		return userRepository.findAll(Sort.by("id"));
 	}
 	
+	public long showCount() {
+		return userRepository.count();
+	}
+	
 	public User showUser(int id) {
 		Optional<User> op = userRepository.findById(id);
 		User user = null;

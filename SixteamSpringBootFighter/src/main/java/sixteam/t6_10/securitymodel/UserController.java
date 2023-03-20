@@ -33,7 +33,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import sixteam.t6_14.model.ActivesRepository;
 import sixteam.t6_14.model.ActivesServiceImpl;
 import sixteam.t6_14.model.EventRegistService;
 import sixteam.t6_14.model.EventRegistrations;
@@ -122,7 +121,23 @@ public class UserController {
 		//System.out.println(strDate);
 		return strDate;
 		}
-
+	
+	//select RegistDate for chart.js
+	@GetMapping("/userCount.controller")
+	@ResponseBody
+	public long allUserCount() {
+		return uService.showCount();
+	}
+	
+	//select RegistDate for chart.js
+	@GetMapping("/userRegistDate.controller")
+	@ResponseBody
+	public List<RegistDate> userRegistDate() {
+		List<RegistDate> list = rService.showAllUserDate();
+		return list;
+	}
+	
+	
 	@Secured({"ROLE_USER"})
 	@GetMapping("/date")
 	@ResponseBody
@@ -197,6 +212,7 @@ public class UserController {
 	@PostMapping("/t6_10_delUser.controller")
 	public String deleteUserAndOther(@RequestParam("id") Integer userId, Principal p, Model m) {
 		User user=uService.showUser(userId);
+		rService.removeUserDate(userId);
 		if(user!=null) {
 			List<EventRegistrations> eventRegistrations=eRegistrationsRepository.findByusers(user);
 			List<MyFavoriteActives> myFav=myFavRpo.findByuser(user);

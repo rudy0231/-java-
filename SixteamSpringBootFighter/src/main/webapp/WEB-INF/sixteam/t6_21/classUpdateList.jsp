@@ -164,9 +164,8 @@
 										id="editor" value="${bean.classInformation}"></textarea>
 								</div>
 							</div>
-							<div>
-								<input type="submit" class="btn btn-success"> 確認<i
-									class="fa-solid fa-circle-check"></i>
+							<div >
+								<input type="submit" class="btn btn-success" style="margin-left: 550px">
 
 							</div>
 

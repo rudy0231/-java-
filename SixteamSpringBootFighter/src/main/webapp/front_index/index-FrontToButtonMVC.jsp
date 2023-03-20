@@ -15,50 +15,48 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Top Products</h4>
+					<h4>購物商城</h4>
 					<ul>
-						<li><a href="#">Managed Website</a></li>
-						<li><a href="#">Manage Reputation</a></li>
-						<li><a href="#">Power Tools</a></li>
-						<li><a href="#">Marketing Service</a></li>
+						<li><a href="#">運勢小物</a></li>
+						<li><a href="http://localhost:8081/showAllClass.controller">改運課程</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Quick Links</h4>
+					<h4>功能導覽</h4>
 					<ul>
-						<li><a href="#">Jobs</a></li>
-						<li><a href="#">Brand Assets</a></li>
-						<li><a href="#">Investor Relations</a></li>
-						<li><a href="#">Terms of Service</a></li>
+						<li><a href="single-blog.html">近期活動</a></li>
+						<li><a href="single-blog.html">信徒論壇</a></li>
+						<li><a href="single-blog.html">姻緣配對</a></li>
+						<li><a href="single-blog.html">住宿訂房</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Features</h4>
+					<h4>會員中心</h4>
 					<ul>
-						<li><a href="#">Jobs</a></li>
-						<li><a href="#">Brand Assets</a></li>
-						<li><a href="#">Investor Relations</a></li>
-						<li><a href="#">Terms of Service</a></li>
+						<li><a href="/loginToProfile">基本資料</a></li>
+						<li><a href="/showAllClass.controller">課程訂單紀錄</a></li>
+						<li><a href="/EventRegist">已報名活動</a></li>
+						<li><a href="/favorite">我的最愛活動</a></li>
+						<li><a href="single-blog.html">訂房紀錄</a></li>
+						<li><a href="single-blog.html">發文紀錄</a></li>
+						<li><a href="single-blog.html">配對紀錄</a></li>
+						<li><a href="single-blog.html">物品訂單紀錄</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Resources</h4>
+					<h4>聯絡我們</h4>
 					<ul>
-						<li><a href="#">Guides</a></li>
-						<li><a href="#">Research</a></li>
-						<li><a href="#">Experts</a></li>
-						<li><a href="#">Agencies</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-4 col-md-6 single-footer-widget">
-					<h4>Newsletter</h4>
-					<p>You can trust us. we only send promo offers,</p>
+					<h4>歡迎寄信到以下信箱</h4>
+					<p>神明便利店誠摯歡迎您!</p>
 					<div class="form-wrap" id="mc_embed_signup">
 						<form target="_blank"
 							action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
 							method="get" class="form-inline">
 							<input class="form-control" name="EMAIL"
-								placeholder="Your Email Address" onfocus="this.placeholder = ''"
+								placeholder="teemin20230202@gmail.com" onfocus="this.placeholder = ''"
 								onblur="this.placeholder = 'Your Email Address'" required=""
 								type="email" />
 							<button class="click-btn btn btn-default">
@@ -81,9 +79,9 @@
 					<script>
 						document.write(new Date().getFullYear());
 					</script>
-					All rights reserved | This template is made with <i
+					此網站版權屬於神明便利店所有 <i
 						class="ti-heart" aria-hidden="true"></i> by <a
-						href="https://colorlib.com" target="_blank">Colorlib</a>
+						href="https://colorlib.com" target="_blank">李天明</a>
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 				</p>
 				<div class="col-lg-4 col-sm-12 footer-social">

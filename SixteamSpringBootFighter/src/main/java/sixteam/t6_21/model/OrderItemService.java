@@ -1,6 +1,7 @@
 package sixteam.t6_21.model;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,17 @@ public class OrderItemService {
 		return oRepo.findByorderNumber(orderNumber);
 	}
 	
-	//檢查訂單庫存量
+	public void deleteAllByOrderNumber(int orderNumber) {
+		oRepo.deleteAllByOrderNumber(orderNumber);
+	}
+	
+	public void deleteByseqno(Integer seqno) {
+		oRepo.deleteByseqno(seqno);
+	}
+	public OrderItemBean findByseqno(Integer seqno) {
+		return oRepo.findByseqno(seqno);
+	}
 
+	
 	
 }

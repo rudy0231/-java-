@@ -4,8 +4,6 @@ import java.sql.Blob;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "users")
 public class User {
@@ -19,7 +17,6 @@ public class User {
     private String password;
     private boolean active;
     private String roles;
-    @JsonIgnore
     private Blob img;
     private String email;
 

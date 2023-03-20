@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="icon" href="front_index/img/logo.png" type="image/png" />
+<title>神明便利店</title>
 <link rel="stylesheet" href="/front_index/css/bootstrap.css" />
 <link rel="stylesheet" href="/front_index/css/flaticon.css" />
 <link rel="stylesheet" href="/front_index/css/themify-icons.css" />
@@ -30,11 +31,11 @@
 			<div
 				style="display: flex; justify-content: center; width: 300px; height: 100px">
 				<h3 class="billing-title"
-					style="position: absolute; margin: 0px -700px 0 100px; font-weight: bolder">感謝您的訂購，${LoginOK.userName}，請確認以下訂單訊息</h3>
+					style="position: absolute; margin: 0px -600px 0 100px; font-weight: bolder">感謝您的訂購，請確認以下訂單訊息</h3>
 			</div>
 			<div class="row mb-5">
 				<div class="col-md-6 col-xl-4 mb-4 mb-xl-0"
-					style="margin-left: 500px">
+					style="margin-left: 400px">
 					<div class="confirmation-card">
 						<h3 class="billing-title" style="font-weight: bolder">訂購人資訊</h3>
 						<table class="order-rable">

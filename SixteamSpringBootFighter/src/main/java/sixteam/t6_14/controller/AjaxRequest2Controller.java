@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import sixteam.t6_14.model.ActiveService;
 import sixteam.t6_14.model.Actives;
 
 @RestController
+@SessionAttributes(names = {"LoginOK"})
 @RequestMapping("/ajax")
 public class AjaxRequest2Controller {
 	@Autowired

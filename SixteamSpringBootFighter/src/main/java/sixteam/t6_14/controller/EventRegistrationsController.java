@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import sixteam.t6_10.model.MyAuthenticationProvider;
 import sixteam.t6_10.securitymodel.MyUserDetails;
@@ -37,6 +38,7 @@ import sixteam.t6_21.model.MailService;
 import sixteam.utils.Utils;
 
 @Controller
+@SessionAttributes(names = {"LoginOK"})
 @RequestMapping("/EventRegist")
 public class EventRegistrationsController {
 

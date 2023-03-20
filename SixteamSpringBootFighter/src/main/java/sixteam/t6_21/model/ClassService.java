@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,8 +42,23 @@ public class ClassService {
 		return cRepo.findAll();
 
 	}
+	public List<ClassBean> findByclassType(String classType){
+		return cRepo.findByclassType(classType);
+
+	}
 	
-//	public int updateclassApplicant(int classApplicant,int classId) {
-//		return cRepo.updateclassApplicant(classApplicant, classId);
-//	}
+	public void updateClassApplicant(int classquantity,int classId) {
+		cRepo.updateClassApplicant(classquantity,classId);
+	}
+	
+	public void deleteClassApplicant(int classquantity,int classId) {
+		cRepo.deleteClassApplicant(classquantity, classId);
+	}
+
+	public List<ClassBean> findByClassDateOrderByAsc(){
+		return cRepo.findByClassDateOrderByAsc();
+	}
+	public List<ClassBean> findByClassApplicantByAsc(){
+		return cRepo.findByClassApplicantByAsc();
+	}
 }

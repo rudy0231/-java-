@@ -28,6 +28,7 @@ public class ShoppingCart {
 			// 加購的數量：bean.getQuantity()
 			// 原有的數量：oBean.getQuantity()			
 			oiBean.setQuantity(oib.getQuantity() + oiBean.getQuantity());
+			oiBean.setUnitPrice(oib.getUnitPrice()+oiBean.getUnitPrice());
 		}
 	}
  //計算數量
@@ -66,7 +67,7 @@ public class ShoppingCart {
 		Set<Integer> set = cart.keySet();
 		for(int n : set){
 			OrderItemBean oib = cart.get(n);
-			double price    = oib.getUnitPrice();
+			double price  = oib.getUnitPrice();
 			int qty      = oib.getQuantity();
 			subTotal +=  price*qty;
 		}

@@ -55,9 +55,9 @@
 <table id="datatablesSimple">
         <thead>
             <tr>
-                <th style="display:flex"><span class="fa-solid fa-address-card"></span>會員編號</th>
+                <th><span class="fa-solid fa-address-card"></span>會員編號</th>
                 <th><span class="fa-solid fa-circle-user"></span>會員帳號</th>
-                <th style="display:flex"><span class="fa-solid fa-address-card"></span>狀態</th>
+                <th><span class="fa-solid fa-address-card"></span>啟用帳號</th>
           		<th><span class="fa-solid fa-key"></span>會員信箱</th>
                 <th><span class="fa-solid fa-image"></span>會員圖片</th>
                 <th><span class="fa-solid fa-pen-to-square"></span>修改會員資料</th>
@@ -71,7 +71,7 @@
                     
                     						<td><c:choose>
 												<c:when test="${user.active==true}">
-												<input type="checkbox" id="active" name="active" value="${user.active}" checked>
+												<input  type="checkbox" id="active" name="active" value="${user.active}" checked>
 												</c:when>
 												<c:otherwise>
 												<input type="checkbox" id="active" name="active" value="${user.active}">
